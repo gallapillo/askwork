@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Отправленые запросы
+{% endblock title %}
+
+{% block content %}
+
+    {% if is_empty %}
+        <h1>Заявок нет..</h1>
+    {% endif %}
+
+    {% for obj in qs %}
+        <div class="ui segment">
+            <div class="ui grid">
+                <div class="row">
+                    <div class="three wide column">
+                        <img class="ui small circular image" src={{obj.avatar.url}}>
+                    </div>
+                    <div class="thirteen wide column">
+                        <h3>{{obj.user}}</h3>
+                        <p>{{obj.bio}}</p>
+                        <br>
+                        <a href="">
+                            <button class="ui primary button w-big mb-5">Увидеть профиль</button>
+                        </a>
+                        <form action="{% url 'profiles:accept-invite' %}" method="POST">
+                            {% csrf_token %}
+                            <button class="ui disabled button mb-5 w-big"><i class="user icon"></i>Ожидание запроса</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}

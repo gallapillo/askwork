@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Мой профиль
+{% endblock title %}
+
+{% block content %}
+
+<!-- MODAL -->
+<div class="ui modal mymodal">
+  <i class="close icon"></i>
+  <div class="header">
+    Обновить ваш профиль
+  </div>
+  <div class="image content">
+    <div class="ui medium image">
+      <img src="{{profile.avatar.url}}">
+    </div>
+    <div class="description">
+      <div class="ui header">Предоставьте дополнительную / самую свежую информацию о себе </div>
+     <form action="" method="POST" class="ui form" enctype='multipart/form-data'>
+        {% csrf_token %}
+        {{form.as_p}}
+
+
+      <div class="actions">
+        <button type='submit' class="ui positive right labeled icon button">
+          Обновить
+          <i class="checkmark icon"></i>
+        </button>
+      </div>
+    </form>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="ui segment">
+    {% if confirm %}
+        <div class="ui green message">Ваш профиль был обновлен</div>
+    {% endif %}
+    <h3>мой профиль: {{request.user}}</h3>
+    <div class="ui grid">
+        <div class='row'>
+            <div class='six wide column'>
+                <img class="ui medium rounded image" src={{profile.avatar.url}}>
+                <div class="row mt-5">
+                    <button class='ui secondary button' id='modal-btn'>Обновить ваш профиль</button>
+                </div>
+            </div>
+            <div class="ten wide column">
+                <table class="ui table">
+                    <tbody>
+                        <tr>
+                            <td>Пользователь</td>
+                            <td>{{profile.user}}</td>
+                        </tr>
+                        <tr>
+                            <td>Имя</td>
+                            <td>{{profile.first_name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Фамилия</td>
+                            <td>{{profile.second_name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Биография</td>
+                            <td>{{profile.bio}}</td>
+                        </tr>
+                        <tr>
+                            <td>Всего друзей</td>
+                            <td>{{profile.get_friends_no}}</td>
+                        </tr>
+                        <tr>
+                            <td>Друзья</td>
+                            <td>
+                                <ul>
+                                    {% for friend in profile.get_friends %}
+                                        <li style="list-style: none; margin: 0; padding: 0;">{{friend}}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>кол-во постов</td>
+                            <td>{{profile.get_post_no}}</td>
+                        </tr>
+                        <tr>
+                            <td>Всего лайков получено</td>
+                            <td>{{profile.get_likes_given_no}}</td>
+                        </tr>
+                        <tr>
+                            <td>Поставил лайков</td>
+                            <td>{{profile.get_likes_recieved_no}}</td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
