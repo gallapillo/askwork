@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'jx_bt&xa25loo3!kg+a0r%@j7z$ls5c-74u%do2375)bq)9l11'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['askwork.herokuapp.com']# , '127.0.0.1'
 
@@ -56,7 +56,7 @@ LOGIN_REDIRECT_URL = '/post'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_UNIQUE = True
-# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 
 if DEBUG:
