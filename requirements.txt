@@ -20,7 +20,7 @@ gunicorn==20.0.4
 Jinja2==2.11.3
 jmespath==0.10.0
 Pillow==7.0.0
-python-dateutil=2.8.1
+python-dateutil==2.8.1
 s3transfer==0.3.6
 six==1.15.0
 soupsieve==2.0.1
