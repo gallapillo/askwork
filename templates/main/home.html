@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Главная страница
+{% endblock title %}
+
+{% block content %}
+    <div class="ui grid">
+        <div class="row">
+            <div class="ui vertical fluid menu">
+                <div class="four wide column" style="text-align: center; margin-top: 200px; padding-top: 100px; padding-bottom: 500px;">
+                <h1 style="font-size: 36px;">askwork - новая социальная сеть</h1>
+                    <p style="font-size: 24px;">Добро пожаловать {% if user.is_authenticated %} <span class="violet" style="color: crimson;">{{ user }}</span>{% else %}<a href="accounts/signup/" style="color: red;">Нет аккаунта? Зарегестриуйтесь </a>  {% endif%}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script>
+
+    </script>
+{% endblock scripts %}
