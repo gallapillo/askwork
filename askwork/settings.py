@@ -27,7 +27,7 @@ SECRET_KEY = 'jx_bt&xa25loo3!kg+a0r%@j7z$ls5c-74u%do2375)bq)9l11'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['askwork.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['askwork.herokuapp.com']# , '127.0.0.1'
 
 
 # Application definition
